@@ -6,12 +6,14 @@ import random
 import time
 import vikingsClasses
 
+import inspect
+
 def warloop():
     while len(mainwar.vikingArmy) != 0 and len(mainwar.saxonArmy) != 0:
         battle()
         #time.sleep(0.2)
-        print(f"there are {len(mainwar.vikingArmy)} vikings left")
-        print(f"there are {len(mainwar.saxonArmy)} saxons left")
+        print(f"{len(mainwar.vikingArmy)} vikings left")
+        print(f"{len(mainwar.saxonArmy)} saxons left")
 
 
 def battle():
