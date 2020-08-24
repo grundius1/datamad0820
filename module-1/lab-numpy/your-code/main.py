@@ -13,7 +13,7 @@ a = np.random.random((2,3,5))
 
 #4. Print a.
 
-'''print(a)'''
+print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
@@ -22,7 +22,7 @@ b = np.ones((5,2,3))
 
 #6. Print b.
 
-'''print(b)'''
+print(b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
@@ -42,13 +42,13 @@ c = np.transpose(b).reshape((2,3,5))
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
-#d = np.sum(a,c)
+
 d = a+c
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-#print(a, end="\n\n\n")
-#print(d)
+print(a)
+print(d)
 
 '''
 every element has 1 added because the matrix c is a ones matrix
@@ -74,13 +74,13 @@ d_mean = np.mean(d)
 print(d_max)
 print(d_min)
 print(d_mean)
-print(d.shape)
+
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty((2,3,5))
-print(f)
+
 
 
 
@@ -93,9 +93,8 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-print(d)
 
-def change(num):
+def changenum(num):
         if num == d_min:
                 return 0
         elif d_min < num < d_mean:
@@ -107,7 +106,11 @@ def change(num):
         else:
                 return 100
 
-x = [[cell + 100 for cell in row] for row in d]
+
+for x in range(d.shape[0]):
+        for y in range(d.shape[1]):
+                for z in range(d.shape[2]):
+                        f[x,y,z] = changenum(d[x,y,z])
 
 
 """
@@ -130,7 +133,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(d)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -144,3 +148,23 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+def changeler(num):
+        if num == d_min:
+                return "A"
+        elif d_min < num < d_mean:
+                return "B"
+        elif num == d_mean:
+                return "C"
+        elif d_mean < num < d_max:
+                return "D"
+        else:
+                return "E"
+
+l= d.tolist()
+for x in range(d.shape[0]):
+        for y in range(d.shape[1]):
+                for z in range(d.shape[2]):
+                        l[x][y][z] = changeler(d[x,y,z])
+
+l = np.array(l)
+print(l)
