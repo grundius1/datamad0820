@@ -6,7 +6,6 @@ import random
 import time
 import vikingsClasses
 
-import inspect
 
 def warloop():
     while len(mainwar.vikingArmy) != 0 and len(mainwar.saxonArmy) != 0:
