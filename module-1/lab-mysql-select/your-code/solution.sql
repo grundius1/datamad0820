@@ -25,10 +25,11 @@ select
 	authors.au_id,
 	authors.au_lname,
 	authors.au_fname,
-	sum(qty) as qty
+	sum(ytd_sales) as qty
 	from sales
 	left join titleauthor on sales.title_id = titleauthor.title_id
 	left join authors on titleauthor.au_id = authors.au_id
+	left join titles on sales.title_id = titles.title_id
 	group by authors.au_id
 	order by qty desc
 	LIMIT 3
