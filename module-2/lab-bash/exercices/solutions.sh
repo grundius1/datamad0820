@@ -92,6 +92,9 @@ sudo lshw -c cpu
 #sudo passwd usuarionuevo
 
 #ejercicio 28: Comprime las carpetas lorem y lorem-copy en un archivo llamado lorem-compressed.tar.gz
+tar -cvzf lorem-compressed.tar.gz lorem/ lorem-copy/
 
+#ejercicio29: Descomprime el archivo lorem-compressed.tar.gz en la carpeta lorem-uncompressed
+tar -xvf lorem-compressed.tar.gz -C lorem-uncompressed/
 
 
