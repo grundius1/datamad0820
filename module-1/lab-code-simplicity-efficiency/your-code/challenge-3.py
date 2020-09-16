@@ -18,12 +18,8 @@ def my_function(X):
         for y in range(4, X):
             for z in range(3, X):
                 if (x*x==y*y+z*z):
-                  solutions.append([x, y, z])
-    m = 0
-    for solution in solutions:
-        if m < max(solution):
-            m = max(solution)
-    return m
+                    solutions.append(max([x, y, z]))
+    return max(solutions)
 
 X = input("What is the maximal length of the triangle side? Enter a number: ")
 
